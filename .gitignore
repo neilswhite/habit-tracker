@@ -6,3 +6,7 @@ node_modules
 .ruff_cache
 .vscode
 __pycache__
+# Local SQLite database (created on first run)
+*.db
+*.db-shm
+*.db-wal
