@@ -6,13 +6,20 @@ A personal habit tracking web application with streak tracking and completion ra
 The rules for every project are in the playbook,
 https://github.com/Agile-Media-Agency/the-fluid-stack/tree/main/playbook
 (`README.md` is the index; a new project starts at `01-project-setup.md`, a new
-site, domain or client at `00-new-site-checklist.md`). This file holds only what
-is specific to this project and dated exceptions to the playbook. When you fix
-or add something other sites could use, change the playbook in the same PR, add
-a row to `playbook/FEATURES.md`, and open a `playbook-sync` issue on each
-sibling repo. Project facts (domain, hosting, email, status) live in the
-registry, https://github.com/neilswhite/neil-projects-registry/blob/main/PROJECTS.md,
-not here. At session start, read this repo's open `playbook-sync` issues.
+site, domain or client at `00-new-site-checklist.md`). This file holds only
+what is specific to this project and its dated exceptions to the playbook
+("Exceptions" below, the one home for them: stack D36). When you fix or add
+something other sites could use, change the playbook in the same PR, add a row
+to `playbook/FEATURES.md`, and open a `playbook-sync` issue on each sibling
+repo; at session start, read this repo's open `playbook-sync` issues. Keep here
+the facts an agent needs in the first minute (what it is, stack, run and deploy
+commands, gotchas, status); the registry,
+https://github.com/neilswhite/neil-projects-registry/blob/main/PROJECTS.md, is
+the index of them, not their only home.
+
+**How Neil works** (reply stamps, a URL with every mention, multiple-choice decisions, one step at a
+time, the standing approval): https://github.com/neilswhite/00-claude-ops/blob/main/CLAUDE.md is
+canonical for every surface (stack D37).
 
 ## Tech Stack
 
@@ -182,5 +189,8 @@ tests/
     └── habits.spec.js       # User journey tests
 ```
 
+## Exceptions
+- none
+
 ## Last touched
-2026-10-28 · Mac Studio · desktop (agent) · Audit F7: added the playbook pointer block and this line. Before that: 2026-10-13, pinned the backend to Python 3.13, dependency-groups, SQLite db untracked.
+2026-10-28 · Mac Studio · desktop (agent) · Audit F7: added the playbook pointer block (template wording: Exceptions D36, How Neil works D37), an "Exceptions" section and this line. Before that: 2026-10-13, pinned the backend to Python 3.13, dependency-groups, SQLite db untracked.
