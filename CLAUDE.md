@@ -2,6 +2,18 @@
 
 A personal habit tracking web application with streak tracking and completion rate metrics.
 
+## How we build (read first)
+The rules for every project are in the playbook,
+https://github.com/Agile-Media-Agency/the-fluid-stack/tree/main/playbook
+(`README.md` is the index; a new project starts at `01-project-setup.md`, a new
+site, domain or client at `00-new-site-checklist.md`). This file holds only what
+is specific to this project and dated exceptions to the playbook. When you fix
+or add something other sites could use, change the playbook in the same PR, add
+a row to `playbook/FEATURES.md`, and open a `playbook-sync` issue on each
+sibling repo. Project facts (domain, hosting, email, status) live in the
+registry, https://github.com/neilswhite/neil-projects-registry/blob/main/PROJECTS.md,
+not here. At session start, read this repo's open `playbook-sync` issues.
+
 ## Tech Stack
 
 - **Backend**: Python 3.11+, FastAPI, SQLAlchemy, SQLite, structlog
@@ -169,3 +181,6 @@ tests/
     ├── pages/               # Page objects
     └── habits.spec.js       # User journey tests
 ```
+
+## Last touched
+2026-10-28 · Mac Studio · desktop (agent) · Audit F7: added the playbook pointer block and this line. Before that: 2026-10-13, pinned the backend to Python 3.13, dependency-groups, SQLite db untracked.
