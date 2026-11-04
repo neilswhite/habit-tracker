@@ -12,6 +12,7 @@ export function HabitCard({ habit }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [toggleError, setToggleError] = useState(null);
 
   const { mutate: complete, isPending: isCompleting } = useCompleteHabit();
   const { mutate: uncomplete, isPending: isUncompleting } = useUncompleteHabit();
@@ -21,10 +22,22 @@ export function HabitCard({ habit }) {
   const isPending = isCompleting || isUncompleting;
 
   const handleToggle = () => {
+    setToggleError(null);
     if (habit.completed_today) {
-      uncomplete({ id: habit.id, date: today });
+      uncomplete(
+        { id: habit.id, date: today },
+        { onError: () => setToggleError('Could not mark as incomplete. Please try again.') }
+      );
     } else {
-      complete({ id: habit.id, date: today });
+      complete(
+        { id: habit.id, date: today },
+        {
+          onError: () =>
+            setToggleError(
+              'Could not mark as complete. If today is skipped, unskip it in the calendar first.'
+            ),
+        }
+      );
     }
   };
 
@@ -87,6 +100,12 @@ export function HabitCard({ habit }) {
               <Check className="w-5 h-5" />
             </button>
           </div>
+
+          {toggleError && (
+            <p className="mt-2 text-sm text-red-600" role="alert">
+              {toggleError}
+            </p>
+          )}
 
           {/* Stats */}
           <div className="mt-4 flex items-center gap-4 text-sm">
