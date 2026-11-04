@@ -1,3 +1,5 @@
+import datetime
+
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # --- Habit Schemas ---
@@ -67,6 +69,17 @@ class CompletionBase(BaseModel):
 
     date: str = Field(..., pattern=r"^\d{4}-\d{2}-\d{2}$")
     notes: str | None = Field(None, max_length=500)
+
+    @field_validator("date")
+    @classmethod
+    def date_valid_not_future(cls, v: str) -> str:
+        try:
+            parsed = datetime.date.fromisoformat(v)
+        except ValueError:
+            raise ValueError("Date must be a valid calendar date")
+        if parsed > datetime.date.today():
+            raise ValueError("Date cannot be in the future")
+        return parsed.isoformat()
 
 
 class CompletionCreate(CompletionBase):
