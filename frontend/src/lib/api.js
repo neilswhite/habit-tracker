@@ -11,7 +11,10 @@ export async function request(endpoint, options = {}) {
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
-    throw new Error(error.detail || 'An error occurred');
+    const detail = Array.isArray(error.detail)
+      ? error.detail.map((d) => d?.msg).filter(Boolean).join('; ')
+      : error.detail;
+    throw new Error(detail || 'An error occurred');
   }
 
   if (response.status === 204) return null;
