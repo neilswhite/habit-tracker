@@ -190,7 +190,7 @@ tests/
 ```
 
 ## Exceptions
-- none
+- 2026-11-17: `react-router-dom` stays on 6.30.x (v7 is a major bump with no frontend tests to prove it), so Dependabot's two react-router alerts (patched only in 7.18) stay open until someone moves to v7 and checks the routes by hand. Vite is on 6.x (patched line), not 5.
 
 ## Last touched
 2026-10-28 · Mac Studio · desktop (agent) · Audit F7: added the playbook pointer block (template wording: Exceptions D36, How Neil works D37), an "Exceptions" section and this line. Before that: 2026-10-13, pinned the backend to Python 3.13, dependency-groups, SQLite db untracked.
